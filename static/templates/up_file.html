@@ -1,0 +1,12 @@
+{% extends "main_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}上传{% endblock %}
+{% block page_content %}
+<div class="page-header" style=" text-align:center;">
+<h1>欢迎来到上传头像页面</h1>
+</div>
+    <div style=" text-align:center;">
+    <a href="/up_file_tou" ><img src="{{ address }}" height="300" width="300"/><br><br></a>
+        {{ wtf.quick_form(form) }}</div>
+{% endblock %}
+

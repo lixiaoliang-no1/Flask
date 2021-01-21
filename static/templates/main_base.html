@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+
+{% extends "bootstrap/base.html" %}
+{% block title %}Flasky{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle"
+data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/">主页</a>
+</div>
+<div class="navbar-collapse collapse" style="text-align:right">
+<ul class="nav navbar-nav">
+    <li><a href="/main/user_massage">个人信息</a></li>
+    <li><a href="/main/write_text">编写文章</a></li>
+    <li><a href="/main/show_self_write">文章管理</a></li>
+    <li><a href="/">个人留言</a></li>
+    <li><a href="/main/public_text">公共留言</a></li>
+<li><a href="/member/register/">注册</a></li>
+<li><a href="/member/logout/">注销</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<!--这是消息闪现-->
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	{{ message }}
+</div>
+{% endfor %}
+{% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+</body>
+</html>

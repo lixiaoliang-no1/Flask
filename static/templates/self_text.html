@@ -1,0 +1,45 @@
+{% extends "main_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}个人留言板{% endblock %}
+{% block page_content %}
+<div class="page-header" style=" text-align:center;">
+<h1>Hello！ {{ name }}</h1>
+</div>
+
+<div>
+{{ wtf.quick_form(form) }}
+
+</div>
+    <br>
+<div>
+<div  style=" text-align:center;">
+<h1> 个人留言板</h1>
+</div>
+<ul class="message">
+{% for res in result %}
+    <li class="message">
+          {% for res1 in result_tou %}
+              {% if res1.userid == res.from_userid %}
+                  <a href="/main/{{ res.from_name }}"> <img src="{{ res1.address }}" height="50" width="50"> </a>
+                      &nbsp;&nbsp;&nbsp;&nbsp;<b style='color: #0080ff;'>{{ res.massage }}</b><br>
+
+              {% endif %}
+          {% endfor %}
+          <br>
+        <div class="post-author">
+            <!--<a href=" zuo zhe kong jian lian jie">-->
+
+               <font size="3" color="#f00" ><b style='color:#f00; '>用户名:&nbsp;&nbsp;</b></font>
+                   <b style='color: #79FF79;'> <a href="/main/{{ res.from_name }}"> {{ res.from_name }}</a></b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <font size="3" color="#f00" ><b style='color:#f00; '>留言时间:&nbsp;&nbsp;</b></font>
+            <b style='color: #9F35FF;'> {{ res.time }}</b>
+
+        </div>
+        <div class="page-header">{{ res.message }}</div>
+
+    </li>
+{% endfor %}
+
+</ul>
+</div>
+{% endblock %}

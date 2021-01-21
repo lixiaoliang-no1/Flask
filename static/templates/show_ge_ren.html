@@ -1,0 +1,80 @@
+{% extends "main_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}主页{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header" style=" text-align:center;">
+<h1>这里是 {{ name }} 的主页</h1>
+</div>
+    <div class="page-header" style=" text-align:center;">
+    <img src="{{ address }}" height="180" width="180"/>
+    </div>
+
+    <div class="page-header"  style=" text-align:center;">
+<h1>个人信息</h1>
+</div>
+
+    <div class="page-header" style=" text-align:center;">
+
+<table border="1" align="center" width="400" >
+   <tr>
+  <th> &nbsp;ID(不可改):</th>
+  <td width="300" height="50">{% if userid %}{{ userid }}{% else %}请及时完善信息{% endif %}</td>
+</tr>
+<tr>
+  <th>&nbsp;真实姓名:</th>
+  <td width="300" height="50">{% if real_name %}{{ real_name }}{% else %}请及时完善信息{% endif %}</td>
+</tr>
+<tr>
+  <th> &nbsp;性别:</th>
+  <td width="300" height="50">{% if sex %}{{ sex }}{% else %}请及时完善信息{% endif %}</td>
+</tr>
+    <tr>
+  <th>&nbsp; 电话号:</th>
+  <td width="300" height="50">{% if phone %}{{ phone }}{% else %}请及时完善信息{% endif %}</td>
+</tr>
+    <tr>
+  <th>&nbsp; 邮箱:</th>
+  <td width="300" height="50">{% if email %}{{ email }}{% else %}请及时完善信息{% endif %}</td>
+</tr>
+    <tr>
+  <th>&nbsp; 家庭住址:</th>
+  <td width="300" height="50">{% if location %}{{ location }}{% else %}请及时完善信息{% endif %}</td>
+</tr>
+</table>
+    </div>
+
+
+
+
+   <div class="page-header" style=" text-align:center;">
+<h1>他的文章</h1>
+</div>
+    <div class="page-header" style=" text-align:center;">
+    {% if result  %}
+ <table border="1">
+<tr>
+  <th width="300" height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文章ID</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文章标题</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提交时间</th>
+</tr>
+
+ {% for res in result %}
+  <tr>
+  <td width="300" height="50">{{ res.id }}</td>
+      <td width="310"><a href="/main/show_text/{{ res.id }}">{{ res.title }}</a></td>
+  <td width="310">{{ res.time }}</td>
+
+     </tr>
+{% endfor %}
+
+
+{% else %}
+    <h>暂无文章内容</h>
+{% endif %}
+</table>
+    </div>
+
+{% endblock %}

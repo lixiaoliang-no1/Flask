@@ -1,0 +1,28 @@
+{% extends "main_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}主页{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header" style=" text-align:center;">
+<h1>Hello！ {{ name }}</h1>
+</div>
+    <div class="page-header" style=" text-align:center;">
+    <a href="/up_file_tou" ><img src="{{ address }}" height="180" width="180"/></a>
+    </div>
+    <div class="text" style=" text-align:center;">
+
+    
+
+<font size="6"><a href="/main/user_massage">个人信息</a></p></font>
+ <font size="6"><a href="/main/edit_user_massage">修改个人信息</a></p></font>
+<font size="6"><a href="/main/public_text">公共留言板</a></p></font>
+<font size="6"><a href="">个人留言板</a></p></font>
+<font size="6"><a href="">留言系统</a></p></font>
+
+</div>
+
+{% endblock %}
+
+

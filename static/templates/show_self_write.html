@@ -1,0 +1,36 @@
+{% extends "main_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}文章管理{% endblock %}
+{% block page_content %}
+<div class="page-header" style=" text-align:center;">
+<h1>欢迎来到文章管理页面</h1>
+</div>
+    <div class="page-header" style=" text-align:center;">
+    {% if result  %}
+ <table border="1">
+<tr>
+  <th width="300" height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文章ID</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文章标题</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提交时间</th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改</th>
+<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除</th>
+</tr>
+
+ {% for res in result %}
+  <tr>
+  <td width="300" height="50">{{ res.id }}</td>
+      <td width="310"><a href="/main/show_text/{{ res.id }}">{{ res.title }}</a></td>
+  <td width="310">{{ res.time }}</td>
+    <td width="310"><a href="/main/write_text?id={{ res.id }}">点击编辑</a></td>
+  <td width="310"><a href="/main/delete_self_write?id={{ res.id }}">点击删除</a></td>
+     </tr>
+{% endfor %}
+
+
+{% else %}
+    <h>暂无文章内容</h>
+{% endif %}
+</table>
+    </div>
+{% endblock %}
+

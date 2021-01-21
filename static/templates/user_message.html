@@ -1,0 +1,38 @@
+{% extends "main_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Flasky{% endblock %}
+{% block page_content %}
+<div class="page-header"  style=" text-align:center;">
+<h1>个人信息</h1>
+</div>
+
+    <div class="page-header" style=" text-align:center;">
+        <a href="/up_file_tou" ><img src="{{ address }}" height="150" width="150"/><br><br></a>
+<table border="1" align="center" width="400" >
+   <tr>
+  <th> &nbsp;ID(不可改):</th>
+  <td width="300" height="50">{% if userid %}{{ userid }}{% else %}请及时完善信息{% endif %}</td>
+</tr>
+<tr>
+  <th>&nbsp;真实姓名:</th>
+  <td width="300" height="50"><a href="/main/edit_user_massage">{% if real_name %}{{ real_name }}{% else %}请及时完善信息{% endif %}</a></td>
+</tr>
+<tr>
+  <th> &nbsp;性别:</th>
+  <td width="300" height="50"><a href="/main/edit_user_massage">{% if sex %}{{ sex }}{% else %}请及时完善信息{% endif %}</a></td>
+</tr>
+    <tr>
+  <th>&nbsp; 电话号:</th>
+  <td width="300" height="50"><a href="/main/edit_user_massage">{% if phone %}{{ phone }}{% else %}请及时完善信息{% endif %}</a></td>
+</tr>
+    <tr>
+  <th>&nbsp; 邮箱:</th>
+  <td width="300" height="50"><a href="/main/edit_user_massage">{% if email %}{{ email }}{% else %}请及时完善信息{% endif %}</a></td>
+</tr>
+    <tr>
+  <th>&nbsp; 家庭住址:</th>
+  <td width="300" height="50"><a href="/main/edit_user_massage">{% if location %}{{ location }}{% else %}请及时完善信息{% endif %}</a></td>
+</tr>
+</table>
+    </div>
+{% endblock %}

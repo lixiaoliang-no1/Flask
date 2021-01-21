@@ -1,0 +1,35 @@
+
+{% extends "main_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}写文章{% endblock %}
+{% block page_content %}
+<div class="page-header" style=" text-align:center;">
+<h1>请编写你的文章</h1>
+</div>
+
+    <form action="" name="form" method="post">
+    <div style=" text-align:center;">
+    <img src="{{ address }}" height="120" width="120"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <font size="3" color="#f00" ><b style='color:#f00; '>文章题目</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="{{address }}" height="120" width="120">
+
+    <div>{{ form.title( rows=20) }}</div><br>
+        <font size="3" color="#f00" ><b style='color:#f00; '>文章内容</b></font><br><br>
+    <div>{{ form.text(cols=150, rows=20, class='xxx', style='') }}</div><br>
+    <div>{{ form.submit }}</div>
+     <input id="csrf_token" name="csrf_token" type="hidden" value="IjMxN2Q3YmRmNTc1OTcxNzc0YWY3NmU0NWU2MjNjOGQ1OTYwM2JkMDYi.XU4YNQ.FC8JnWCAgbt0W2gown56bQQEvd0">
+
+    </div>
+    </form>
+{% endblock %}
+
+
+
+
+
+
+
